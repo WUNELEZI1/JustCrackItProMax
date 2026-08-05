@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md3_background">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/md3_primary"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="←"
+            android:textSize="18sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="广播安装"
+            android:textColor="@color/md3_on_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp" />
+    </LinearLayout>
+
+    <!-- 漏洞说明 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/md3_surface">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="漏洞原理: PushMessageReceiver 的 android:exported=true 配置不当，允许任意应用发送 com.zuoyebang.iot.push 广播触发安装"
+            android:textColor="@color/md3_outline"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- APK URL输入 + 选择文件按钮 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="APK来源 (URL直链 或 本地文件)"
+                android:textColor="@color/md3_on_surface"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/apkUrlInput"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:hint="输入APK下载直链 或 选择本地文件"
+                    android:textColor="@color/md3_on_surface"
+                    android:textColorHint="@color/md3_outline"
+                    android:textSize="12sp"
+                    android:background="@drawable/input_bg"
+                    android:singleLine="true"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+
+                <Button
+                    android:id="@+id/pickFileBtn"
+                    android:layout_width="80dp"
+                    android:layout_height="44dp"
+                    android:text="选择文件"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_surface"
+                    android:background="@drawable/input_bg"
+                    android:layout_marginStart="6dp"
+                    android:padding="0dp" />
+            </LinearLayout>
+
+            <!-- 应用名称（可选，自动解析） -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="应用名称 (可选，自动解析)"
+                android:textColor="@color/md3_on_surface"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/appNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:hint="自动解析或手动输入"
+                android:textColor="@color/md3_on_surface"
+                android:textColorHint="@color/md3_outline"
+                android:textSize="12sp"
+                android:background="@drawable/input_bg"
+                android:singleLine="true"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="10dp" />
+
+            <!-- 包名 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="包名 (可选，自动解析)"
+                android:textColor="@color/md3_on_surface"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/pkgNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:hint="自动解析或手动输入 (留空自动生成)"
+                android:textColor="@color/md3_on_surface"
+                android:textColorHint="@color/md3_outline"
+                android:textSize="12sp"
+                android:background="@drawable/input_bg"
+                android:singleLine="true"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="10dp" />
+
+            <!-- 图标URL -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图标URL (可选)"
+                android:textColor="@color/md3_on_surface"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/iconUrlInput"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:hint="应用图标链接 (留空使用默认)"
+                android:textColor="@color/md3_on_surface"
+                android:textColorHint="@color/md3_outline"
+                android:textSize="12sp"
+                android:background="@drawable/input_bg"
+                android:singleLine="true"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 发送广播按钮 -->
+            <Button
+                android:id="@+id/sendBroadcastBtn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="发送安装广播"
+                android:textSize="14sp"
+                android:textColor="@color/md3_on_primary"
+                android:background="@drawable/btn_primary_bg"
+                android:layout_marginBottom="10dp" />
+
+            <!-- 预览JSON按钮 -->
+            <Button
+                android:id="@+id/previewBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="预览广播数据"
+                android:textSize="12sp"
+                android:textColor="@color/md3_on_surface"
+                android:background="@drawable/input_bg"
+                android:layout_marginBottom="12dp" />
+
+            <!-- 日志输出 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="执行日志"
+                android:textColor="@color/md3_on_surface"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/md3_surface"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/logText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="等待操作...\n"
+                    android:textColor="@color/md3_on_surface"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace" />
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

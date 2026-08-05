@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md3_background">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/md3_primary"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="←"
+            android:textSize="18sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="浏览器"
+            android:textColor="@color/md3_on_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <Button
+            android:id="@+id/homeBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="⌂"
+            android:textSize="18sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/refreshBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="↻"
+            android:textSize="16sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- 地址栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@color/md3_surface">
+
+        <EditText
+            android:id="@+id/urlInput"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:hint="输入网址或搜索..."
+            android:textColor="@color/md3_on_surface"
+            android:textColorHint="@color/md3_outline"
+            android:textSize="13sp"
+            android:background="@drawable/input_bg"
+            android:singleLine="true"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:imeOptions="actionGo" />
+
+        <Button
+            android:id="@+id/goBtn"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:text="前往"
+            android:textSize="11sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="@drawable/btn_primary_bg"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/md3_primary"
+        android:visibility="gone" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

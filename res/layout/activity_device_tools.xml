@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md3_background">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/md3_primary"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="←"
+            android:textSize="18sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="设备工具"
+            android:textColor="@color/md3_on_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp" />
+
+        <Button
+            android:id="@+id/refreshBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="↻"
+            android:textSize="18sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- SN信息显示 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@color/md3_surface">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备SN: "
+            android:textColor="@color/md3_on_surface"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/snText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="@color/md3_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <TextView
+            android:id="@+id/childIdText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/md3_outline"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- 功能按钮区 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@color/md3_surface">
+
+        <Button
+            android:id="@+id/btnBehaviorHistory"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="行为历史"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="@drawable/btn_primary_bg"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/btnUsingTime"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="使用时间"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/btnPisouHistory"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="批欧历史"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- 加载指示器 -->
+    <ProgressBar
+        android:id="@+id/loadingBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/md3_primary"
+        android:visibility="gone" />
+
+    <!-- 结果显示区 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:background="@color/md3_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 状态提示 -->
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请选择功能查看设备信息"
+                android:textColor="@color/md3_outline"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="16dp" />
+
+            <!-- 结果容器 -->
+            <LinearLayout
+                android:id="@+id/resultContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <!-- 原始JSON显示 -->
+            <TextView
+                android:id="@+id/rawJsonText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/md3_on_surface"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:padding="8dp"
+                android:background="@color/md3_surface"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 底部操作栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="6dp"
+        android:background="@color/md3_surface">
+
+        <Button
+            android:id="@+id/btnCopyResult"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:text="复制结果"
+            android:textSize="11sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/btnToggleRaw"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="显示原始数据"
+            android:textSize="11sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_bg"
+    android:padding="12dp"
+    android:layout_marginEnd="10dp"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:id="@+id/recIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/icon_placeholder_bg"
+        android:scaleType="fitCenter"
+        android:padding="2dp" />
+
+    <TextView
+        android:id="@+id/recName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/md3_on_surface"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/recDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/md3_on_surface_variant"
+        android:textSize="10sp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/recBtn"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:text="查看"
+        android:textSize="11sp"
+        android:textColor="@color/md3_on_primary"
+        android:background="@drawable/btn_primary_bg"
+        android:padding="0dp" />
+</LinearLayout>

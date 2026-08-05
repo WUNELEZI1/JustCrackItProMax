@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md3_background">
+
+    <!-- 顶部栏 - MD3 Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/md3_primary"
+        android:elevation="4dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="4dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="←"
+            android:textSize="20sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="应用商店"
+            android:textColor="@color/md3_on_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="4dp" />
+
+        <Button
+            android:id="@+id/menuBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="⋮"
+            android:textSize="20sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- SN 绑定栏 -->
+    <LinearLayout
+        android:id="@+id/snBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@color/md3_surface">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SN"
+            android:textColor="@color/md3_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="6dp" />
+
+        <EditText
+            android:id="@+id/snInput"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:hint="输入18位设备SN"
+            android:textColor="@color/md3_on_surface"
+            android:textColorHint="@color/md3_outline"
+            android:textSize="13sp"
+            android:background="@drawable/input_bg"
+            android:singleLine="true"
+            android:maxLength="18"
+            android:inputType="number"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:fontFamily="monospace" />
+
+        <Button
+            android:id="@+id/bindBtn"
+            android:layout_width="56dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:text="绑定"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="@drawable/btn_primary_bg"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- 搜索栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@color/md3_surface">
+
+        <EditText
+            android:id="@+id/searchInput"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:hint="搜索应用..."
+            android:textColor="@color/md3_on_surface"
+            android:textColorHint="@color/md3_outline"
+            android:textSize="14sp"
+            android:background="@drawable/input_bg"
+            android:singleLine="true"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:imeOptions="actionSearch" />
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="56dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:text="搜索"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="@drawable/btn_primary_bg"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- 筛选栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@color/md3_surface">
+
+        <Button
+            android:id="@+id/filterStore"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:text="商店"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="@drawable/btn_primary_bg"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/filterFav"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="收藏"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/filterRecent"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="最近"
+            android:textSize="12sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/sortBtn"
+            android:layout_width="36dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="6dp"
+            android:text="↕"
+            android:textSize="14sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/categoryBtn"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="4dp"
+            android:text="分类"
+            android:textSize="11sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/batchBtn"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="4dp"
+            android:text="批量"
+            android:textSize="11sp"
+            android:textColor="@color/md3_on_surface"
+            android:background="@drawable/input_bg"
+            android:padding="0dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- 分类标签栏 -->
+    <LinearLayout
+        android:id="@+id/categoryBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:background="@color/md3_surface"
+        android:visibility="gone">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/categoryContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- 统计信息 -->
+    <TextView
+        android:id="@+id/statsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/md3_outline"
+        android:textSize="11sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="@color/md3_background"
+        android:visibility="gone" />
+
+    <!-- 搜索历史标签行 -->
+    <LinearLayout
+        android:id="@+id/historyBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@color/md3_surface"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="历史:"
+            android:textColor="@color/md3_outline"
+            android:textSize="11sp"
+            android:layout_marginEnd="6dp" />
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/historyContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/clearHistoryBtn"
+            android:layout_width="36dp"
+            android:layout_height="22dp"
+            android:text="×"
+            android:textSize="12sp"
+            android:textColor="@color/md3_error"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loadingBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/md3_primary"
+        android:visibility="gone" />
+
+    <!-- 内容滚动区（推荐+全部应用联动滑动） -->
+    <ScrollView
+        android:id="@+id/contentScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 推荐区 -->
+            <LinearLayout
+                android:id="@+id/recommendBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@color/md3_background"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="推荐应用"
+                    android:textColor="@color/md3_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/recommendContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- 全部应用标题 -->
+            <TextView
+                android:id="@+id/allTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全部应用"
+                android:textColor="@color/md3_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="4dp"
+                android:background="@color/md3_background"
+                android:visibility="gone" />
+
+            <!-- 应用网格容器（动态生成行） -->
+            <LinearLayout
+                android:id="@+id/appGridContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="6dp" />
+
+            <!-- 空状态 -->
+            <TextView
+                android:id="@+id/emptyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请先绑定SN"
+                android:textColor="@color/md3_outline"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:padding="40dp"
+                android:visibility="gone" />
+
+            <!-- 加载更多 -->
+            <Button
+                android:id="@+id/loadMoreBtn"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="加载更多 ▼"
+                android:textSize="13sp"
+                android:textColor="@color/md3_on_primary"
+                android:background="@drawable/btn_primary_bg"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="6dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 可折叠日志面板（默认展开toggle，折叠内容） -->
+    <LinearLayout
+        android:id="@+id/logPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/logToggle"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="执行日志 ▼"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:textSize="11sp"
+            android:textColor="@color/md3_outline"
+            android:background="@color/md3_surface_variant"
+            android:clickable="true" />
+
+        <ScrollView
+            android:id="@+id/logScroll"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/md3_surface"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/logText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/md3_on_surface"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- 批量操作栏 -->
+    <LinearLayout
+        android:id="@+id/batchBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/md3_primary"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/batchCancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="取消"
+            android:textSize="13sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+
+        <TextView
+            android:id="@+id/batchCountText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="已选择 0 个应用"
+            android:textColor="@color/md3_on_primary"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/batchInstallBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="批量安装"
+            android:textSize="13sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="@drawable/btn_primary_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:alpha="0.5"
+            android:enabled="false" />
+    </LinearLayout>
+</LinearLayout>

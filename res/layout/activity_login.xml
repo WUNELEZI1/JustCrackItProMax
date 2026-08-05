@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md3_background">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="#B83A0F" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="作业帮应用商店"
+            android:textColor="@color/md3_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="输入设备SN号以绑定设备"
+            android:textColor="@color/md3_on_surface_variant"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp" />
+
+        <EditText
+            android:id="@+id/snInput"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="请输入18位设备SN"
+            android:textColor="@color/md3_on_surface"
+            android:textColorHint="@color/md3_outline"
+            android:textSize="16sp"
+            android:background="@drawable/input_bg"
+            android:singleLine="true"
+            android:maxLength="18"
+            android:inputType="number"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:id="@+id/snError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SN必须为18位纯数字"
+            android:textColor="@color/md3_error"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/snCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/18"
+            android:textColor="@color/md3_on_surface_variant"
+            android:textSize="11sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- 历史SN记录 -->
+        <TextView
+            android:id="@+id/snHistoryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="历史SN:"
+            android:textColor="@color/md3_outline"
+            android:textSize="11sp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/snHistoryContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone" />
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/enterBtn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:text="进入商店"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/md3_on_primary"
+            android:background="@drawable/btn_disabled_bg"
+            android:enabled="false" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JCKProMax v5.0"
+        android:textColor="@color/md3_outline"
+        android:textSize="11sp"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+</LinearLayout>

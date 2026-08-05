@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.JCKProMax" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/md3_primary</item>
+        <item name="android:colorPrimaryDark">@color/md3_primary</item>
+        <item name="android:colorAccent">@color/md3_primary</item>
+        <item name="android:statusBarColor">@color/md3_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/md3_surface</item>
+        <item name="android:windowBackground">@color/md3_background</item>
+        <item name="android:textColorPrimary">@color/md3_on_surface</item>
+        <item name="android:textColorSecondary">@color/md3_on_surface_variant</item>
+        <item name="android:alertDialogTheme">@style/Theme.JCKProMax.Dialog</item>
+    </style>
+
+    <style name="Theme.JCKProMax.Dialog" parent="@android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">@color/md3_primary</item>
+        <item name="android:colorAccent">@color/md3_primary</item>
+        <item name="android:windowTitleStyle">@style/TextAppearance.JCKProMax.Dialog.Title</item>
+    </style>
+
+    <style name="TextAppearance.JCKProMax.Dialog.Title" parent="@android:style/TextAppearance.Material.DialogWindowTitle">
+        <item name="android:textColor">@color/md3_primary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

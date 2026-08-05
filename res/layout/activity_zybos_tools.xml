@@ -1,0 +1,1999 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md3_background">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/md3_primary"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="←"
+            android:textSize="18sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Zybos系统工具"
+            android:textColor="@color/md3_on_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp" />
+
+        <Button
+            android:id="@+id/detectBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="志"
+            android:textSize="14sp"
+            android:textColor="@color/md3_on_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- 状态栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@color/md3_surface">
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="状态: 未检测"
+            android:textColor="@color/md3_outline"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- 功能按钮区 (可滚动) -->
+    <ScrollView
+        android:id="@+id/btnScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ============ 快捷方式/Intent ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="快捷方式 / Intent"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnOpenShortcut"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="打开快捷方式"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnIntentOpen"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Intent打开"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类1: 安装管理 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类1: 安装管理"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSilentInstall"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="安装APK"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnUninstall"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="静默卸载"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnDirectUrl"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="直链安装"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSysUninstall"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="系统卸载"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnDowngrade"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="降级安装"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnDowngradeZpuc"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="降级用户中心"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnIsSilentInstallDisallow"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查静默安装限制"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnIsDisallowInstallPackage"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查安装是否禁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类2: 包名/类名管控 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类2: 包名/类名管控"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnDisableParental"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="解除管控"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSupervise"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="管控探针"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetClassListAllow"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置允许类"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnIsDisallowPackage"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查包是否禁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnIsDisallowClass"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查类是否禁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnIsAllowClass"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查类是否允许"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetClassListDisallow"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置禁止类"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类3: 系统控制 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类3: 系统控制"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnCancelUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="取消更新"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnOta"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="OTA管理"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnClearAppstore"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="清appstore"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnLockScreen"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="立即锁屏"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnIsDisallowUSB"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查USB是否禁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnDisableNami"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="禁用Nami"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnIsAdbEnabled"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查ADB状态"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetUSBDisallow"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置USB禁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetInstallPackageDisallow"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置安装禁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetPackageListDisallow"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置禁止包名"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类4: 显示设置 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类4: 显示设置"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetNightDisplayOn"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="护眼开关"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetNightColorTemp"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置色温"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnGetNightColorTemp"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="获取色温"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnIsNightDisplayOn"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查护眼状态"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetDefaultBrowser"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置默认浏览器"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetDisplayDaltonizer"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="色彩校正开关"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnIsInDisplayDaltonizer"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查色彩校正"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetStylusEnabled"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="触控笔开关"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetMtkPQColorTemp"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="MTK色温开关"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetMtkPQGammaIndex"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置Gamma"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnGetMtkPQGammaDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Gamma默认值"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnGetMtkPQGammaMin"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Gamma最小值"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnGetMtkPQGammaMax"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Gamma最大值"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnGetMtkPQGammaCurrent"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Gamma当前值"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类5: 电池/硬件 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类5: 电池/硬件"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnGetChargerIbat"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="充电电流"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnGetBatteryAging"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="电池老化系数"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnGetBatteryCycle"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="电池循环次数"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnGetBatteryHealth"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="电池健康度"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnGetHardwareCompAll"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="硬件组件A-J"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnGetChargerAgingCV"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="充电器老化CV"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetChargerAgingCV"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置老化CV"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetChargerIeoc"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置截止电流"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类6: sysfs读取 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类6: sysfs读取"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnGetSysfsControl"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="读取sysfs节点"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类7: 免打扰 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类7: 免打扰"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnAddInDndList"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="添加免打扰"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnRemoveFromDndList"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="移除免打扰"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnIsInDndList"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查免打扰列表"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类8: 网络/DNS ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类8: 网络/DNS"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetZybOsDnsDotMode"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置DNS DoT"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnGetZybOsDnsDotMode"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="获取DNS DoT"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类9: 定时开关机 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类9: 定时开关机"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnUpdatePowerOnTime"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="定时开机"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSendLowChargingNotif"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="低电量通知"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnCancelLowChargingNotif"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="取消低电量通知"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类10: 进程管理 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类10: 进程管理"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnForceStopPackage"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="强制停止应用"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnInWhiteList"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="查白名单"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 其他: 开发者/后台管控 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="其他: 开发者/后台管控"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnDevEntry"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="开发者入口"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnDevTile"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="开发者磁贴"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <Button
+                    android:id="@+id/btnBgMgr"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="后台管控"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 高级: Binder事务码 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="高级: Binder事务码"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="已集成全部42个事务码(0x01~0x42)\n上方按钮已使用transact直接调用\n手动调用仅用于高级调试"
+                android:textColor="@color/md3_outline"
+                android:textSize="10sp"
+                android:layout_marginBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnTransactProbe"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="探测(已禁用)"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_disabled_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnManualTransact"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="手动调用"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类11: 框架新发现接口 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="框架新发现接口"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CapCtrl(MTK能力控制) + CustomProp(自定义属性)\n从framework反编译发现的新接口"
+                android:textColor="@color/md3_outline"
+                android:textSize="10sp"
+                android:layout_marginBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnCapCtrlDetect"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="CapCtrl探测"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnCapCtrlEnable"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="CapCtrl能力"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnCustomPropBrowser"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="浏览器版本"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnCustomPropRelease"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="发布日期"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类12: MTK Framework Services (基于ZybOS研究) ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MTK Framework Services"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PowerHalMgr(CPU/网络) + Omadm(设备信息) + AnrManager(进程)\n基于ZybOS全面逆向分析报告新增的MTK框架服务接口"
+                android:textColor="@color/md3_outline"
+                android:textSize="10sp"
+                android:layout_marginBottom="6dp" />
+
+            <!-- PowerHalMgr: CPU性能控制 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnPowerHalDetect"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="PowerHal探测"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnPowerHalPerfLock"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="CPU性能锁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnPowerHalPerfRelease"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="释放性能锁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnPowerHalSetPriority"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="网络优先级"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnPowerHalQuerySysInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="系统信息查询"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnPowerHalFlushRules"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="刷新规则"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- Omadm: 设备信息 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnOmadmDetect"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Omadm探测"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnOmadmGetDeviceId"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="获取IMEI"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnOmadmGetIccid"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="获取ICCID"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnOmadmReadFile"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="读取文件"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- AnrManager: 进程管理 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnAnrDetect"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="AnrManager探测"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnAnrStringToFile"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="文件写入"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- MTK服务扫描器 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+                <Button
+                    android:id="@+id/btnMtkServiceScanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="扫描所有MTK/ZYB服务"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg" />
+            </LinearLayout>
+
+            <!-- ============ 分类13: DuraSpeed漏洞利用 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类13: DuraSpeed漏洞利用"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnDuraDetect"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="检测DuraSpeed"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnDuraAddWhitelist"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="添加白名单"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnDuraGetWhitelist"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="获取白名单"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnDuraSuppress"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="抑制应用"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类14: 系统属性操控 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类14: 系统属性操控"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSysPropGet"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="读取属性"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSysPropSet"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="设置属性"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSysPropTcpLog"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="启用root抓包"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSysPropDropCaches"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="丢弃缓存(DoS)"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSysPropAnrFlow"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="触发ANR杀进程"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSysPropDisableCta"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="禁用安全框架"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类15: SettingsProvider漏洞 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类15: SettingsProvider漏洞"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSettGet"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="读取设置"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSettPut"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="写入设置"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSettEnableAdb"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="启用ADB"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSettDisableAdb"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="禁用ADB"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类16: 广播/服务利用 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类16: 广播/服务利用"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnEnableUsbTether"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="USB网络共享"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnDisableStatusBar"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="禁用状态栏"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnResetPrivacyLock"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="重置隐私锁"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnGetLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="获取位置"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnSetSearchEngine"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="修改搜索引擎"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetAutoBoot"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="修改自启动"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnForceDecryptDrm"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="强制解密DRM"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnSetEthernet"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="修改以太网配置"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <!-- ============ 分类17: 高级服务利用 ============ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分类17: 高级服务利用"
+                android:textColor="@color/md3_on_primary_container"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/md3_primary_container"
+                android:padding="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnPowerHalHint"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="电源提示干扰"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnPowerHalGetCpu"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="获取CPU负载"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnDataShaping"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="数据整形控制"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnLoaderProxy"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="启动代理"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnAdvCamParam"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="修改摄像头参数"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnVoiceWakeup"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="语音唤醒控制"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                <Button
+                    android:id="@+id/btnBluetoothMesh"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="蓝牙Mesh控制"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginEnd="3dp" />
+                <Button
+                    android:id="@+id/btnOmadmWriteFile"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="任意文件写入"
+                    android:textSize="11sp"
+                    android:textColor="@color/md3_on_primary"
+                    android:background="@drawable/btn_primary_bg"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 内嵌日志区域 -->
+    <LinearLayout
+        android:id="@+id/logPanel"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="#1A1A2E"
+        android:padding="4dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="2dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="执行日志"
+                android:textColor="#8888CC"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnClearLog"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="清空"
+                android:textSize="10sp"
+                android:textColor="#8888CC"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp" />
+
+            <Button
+                android:id="@+id/btnHideLog"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="▼"
+                android:textSize="12sp"
+                android:textColor="#8888CC"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:paddingStart="8dp"
+                android:paddingEnd="4dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/logScroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/logText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#AAAAEE"
+                android:fontFamily="monospace"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="4dp"
+                android:lineSpacingExtra="2dp" />
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

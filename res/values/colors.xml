@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material Design 3 - 浅色主题调色板 (Blue) -->
+    <color name="md3_primary">#1565C0</color>
+    <color name="md3_on_primary">#FFFFFF</color>
+    <color name="md3_primary_container">#D1E4FF</color>
+    <color name="md3_on_primary_container">#001D36</color>
+    <color name="md3_secondary">#545F70</color>
+    <color name="md3_on_secondary">#FFFFFF</color>
+    <color name="md3_secondary_container">#D8E2F7</color>
+    <color name="md3_on_secondary_container">#111C2B</color>
+    <color name="md3_tertiary">#6B5778</color>
+    <color name="md3_on_tertiary">#FFFFFF</color>
+    <color name="md3_tertiary_container">#F2DAFF</color>
+    <color name="md3_surface">#FAFCFF</color>
+    <color name="md3_on_surface">#1A1C1E</color>
+    <color name="md3_surface_variant">#DFE2EB</color>
+    <color name="md3_on_surface_variant">#43474E</color>
+    <color name="md3_outline">#73777F</color>
+    <color name="md3_outline_variant">#C3C6CF</color>
+    <color name="md3_background">#F8F9FF</color>
+    <color name="md3_error">#BA1A1A</color>
+    <color name="md3_on_error">#FFFFFF</color>
+    <color name="md3_error_container">#FFDAD6</color>
+    <color name="md3_success">#2E7D32</color>
+    <color name="md3_card_bg">#FFFFFF</color>
+    <color name="md3_card_elevated">#FFFFFF</color>
+    <color name="md3_tag_red">#E53935</color>
+    <color name="md3_tag_orange">#FB8C00</color>
+    <color name="md3_tag_blue">#1E88E5</color>
+    <color name="md3_tag_green">#43A047</color>
+    <color name="md3_shadow">#14000000</color>
+    <color name="md3_divider">#141A1C1E</color>
+    <color name="md3_scrim">#52000000</color>
+</resources>
